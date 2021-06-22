@@ -4,6 +4,12 @@
 
 > An Project Based on Dicoding Class
 
+## Install
+
+```sh
+npm install
+```
+
 ## Author
 
 👤 **Maulana adil**
