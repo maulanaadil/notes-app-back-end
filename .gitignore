@@ -2,3 +2,5 @@ node_modules
 note-api-webserver.pem
 .prod.env
 .env
+test.http
+.idea
