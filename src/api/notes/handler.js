@@ -38,7 +38,7 @@ class NotesHandler {
                 response.code(error.statusCode);
                 return response;
             }
-            // Server Error
+            // Server ERROR!
             const response = h.resolve({
                 status: 'error',
                 message: 'Maaf, terjadi kegagalan pada server kami',
@@ -49,14 +49,34 @@ class NotesHandler {
         }
     }
 
-    async getNotesHandler() {
-        const notes = await this._service.getNotes();
-        return {
-            status: 'success',
-            data: {
-                notes,
-            },
-        };
+    async getNotesHandler(h) {
+        try {
+            const notes = await this._service.getNotes();
+            return {
+                status: 'success',
+                data: {
+                    notes,
+                },
+            };
+        } catch (error) {
+            if (error instanceof ClientError) {
+                const response = h.response({
+                   status: 'fail',
+                   message: error.message
+                });
+                response.code(error.statusCode);
+                return response;
+            }
+            // server ERROR!
+            const response = h.response({
+                status: 'error',
+                message: 'Maaf, terjadi kegagalan pada server kami',
+            });
+            response.code(500);
+            console.error(error);
+            return response
+
+        }
     }
 
     async getNoteByIdHandler(request, h) {
@@ -79,7 +99,7 @@ class NotesHandler {
                 return response;
             }
 
-            // Server Error
+            // Server ERROR!
             const response = h.response({
                 status: 'error',
                 message: 'Maaf, terjadi kegagalan pada server kami.',
@@ -88,7 +108,6 @@ class NotesHandler {
             console.log(error);
             return response;
         }
-
     }
 
     async putNoteByIdHandler(request, h) {

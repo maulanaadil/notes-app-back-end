@@ -7,9 +7,7 @@ const NotesService = require('./service/postgres/NotesService');
 const NotesValidator = require('./validator/notes');
 
 const init = async () => {
-
     const notesService = new NotesService();
-
     const server = Hapi.server({
         port: process.env.PORT,
         host: process.env.HOST,
