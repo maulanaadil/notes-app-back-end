@@ -835,7 +835,7 @@ false Zulu
 13158||-9223372036854775808|U|G
 13158||10|U|G</Grants>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>710</IntrospectionStateNumber>
+      <IntrospectionStateNumber>873</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|16416|16418|1
 </Relations>
@@ -919,7 +919,7 @@ false Zulu
       <Comment>standard public schema</Comment>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>711</IntrospectionStateNumber>
+      <IntrospectionStateNumber>874</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="22" parent="3" name="plpgsql">
@@ -1027,14 +1027,13 @@ false Zulu
     </sequence>
     <table id="35" parent="21" name="authentications">
       <ObjectId>16459</ObjectId>
-      <Outdated>1</Outdated>
       <Owner>developer</Owner>
-      <StateNumber>709</StateNumber>
+      <StateNumber>750</StateNumber>
     </table>
     <table id="36" parent="21" name="notes">
       <ObjectId>16424</ObjectId>
       <Owner>developer</Owner>
-      <StateNumber>521</StateNumber>
+      <StateNumber>830</StateNumber>
     </table>
     <table id="37" parent="21" name="pgmigrations">
       <ObjectId>16418</ObjectId>
@@ -1044,7 +1043,7 @@ false Zulu
     <table id="38" parent="21" name="users">
       <ObjectId>16449</ObjectId>
       <Owner>developer</Owner>
-      <StateNumber>594</StateNumber>
+      <StateNumber>750</StateNumber>
     </table>
     <column id="39" parent="35" name="token">
       <Position>1</Position>
@@ -1095,9 +1094,15 @@ false Zulu
       <StateNumber>521</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <index id="46" parent="36" name="notes_pkey">
+    <column id="46" parent="36" name="owner">
+      <Position>7</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <StateNumber>830</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="47" parent="36" name="notes_pkey">
       <ObjectId>16430</ObjectId>
-      <StateNumber>521</StateNumber>
+      <StateNumber>750</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1106,14 +1111,14 @@ false Zulu
       <CollationNames>default</CollationNames>
       <ClassIds>3126</ClassIds>
     </index>
-    <key id="47" parent="36" name="notes_pkey">
+    <key id="48" parent="36" name="notes_pkey">
       <ObjectId>16431</ObjectId>
       <StateNumber>521</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>notes_pkey</UnderlyingIndexName>
     </key>
-    <column id="48" parent="37" name="id">
+    <column id="49" parent="37" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -1121,21 +1126,21 @@ false Zulu
       <DefaultExpression>nextval(&apos;pgmigrations_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="49" parent="37" name="name">
+    <column id="50" parent="37" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>520</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="50" parent="37" name="run_on">
+    <column id="51" parent="37" name="run_on">
       <Position>3</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>520</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <index id="51" parent="37" name="pgmigrations_pkey">
+    <index id="52" parent="37" name="pgmigrations_pkey">
       <ObjectId>16422</ObjectId>
       <StateNumber>520</StateNumber>
       <ColNames>id</ColNames>
@@ -1145,44 +1150,44 @@ false Zulu
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <key id="52" parent="37" name="pgmigrations_pkey">
+    <key id="53" parent="37" name="pgmigrations_pkey">
       <ObjectId>16423</ObjectId>
       <StateNumber>520</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>pgmigrations_pkey</UnderlyingIndexName>
     </key>
-    <column id="53" parent="38" name="id">
+    <column id="54" parent="38" name="id">
       <Position>1</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>594</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="54" parent="38" name="username">
+    <column id="55" parent="38" name="username">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>594</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="55" parent="38" name="password">
+    <column id="56" parent="38" name="password">
       <Position>3</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>594</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="56" parent="38" name="fullname">
+    <column id="57" parent="38" name="fullname">
       <Position>4</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>594</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <index id="57" parent="38" name="users_pkey">
+    <index id="58" parent="38" name="users_pkey">
       <ObjectId>16455</ObjectId>
-      <StateNumber>594</StateNumber>
+      <StateNumber>750</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1191,9 +1196,9 @@ false Zulu
       <CollationNames>default</CollationNames>
       <ClassIds>3126</ClassIds>
     </index>
-    <index id="58" parent="38" name="users_username_key">
+    <index id="59" parent="38" name="users_username_key">
       <ObjectId>16457</ObjectId>
-      <StateNumber>594</StateNumber>
+      <StateNumber>750</StateNumber>
       <ColNames>username</ColNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
@@ -1201,14 +1206,14 @@ false Zulu
       <CollationNames>default</CollationNames>
       <ClassIds>3126</ClassIds>
     </index>
-    <key id="59" parent="38" name="users_pkey">
+    <key id="60" parent="38" name="users_pkey">
       <ObjectId>16456</ObjectId>
       <StateNumber>594</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>users_pkey</UnderlyingIndexName>
     </key>
-    <key id="60" parent="38" name="users_username_key">
+    <key id="61" parent="38" name="users_username_key">
       <ObjectId>16458</ObjectId>
       <StateNumber>594</StateNumber>
       <ColNames>username</ColNames>
