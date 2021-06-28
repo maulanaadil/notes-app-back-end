@@ -1,6 +1,6 @@
 node_modules
 note-api-webserver.pem
-.prod.env
 .env
+.prod .env
 test.http
 .idea
