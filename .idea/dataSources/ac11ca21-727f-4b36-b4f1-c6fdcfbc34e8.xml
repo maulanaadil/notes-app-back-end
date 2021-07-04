@@ -816,7 +816,7 @@ false YEKT
 false Z
 false Zulu
 </TimeZones>
-      <StartupTime>1624365406</StartupTime>
+      <StartupTime>1625043063</StartupTime>
     </root>
     <database id="2" parent="1" name="companydb">
       <ObjectId>16404</ObjectId>
@@ -835,7 +835,7 @@ false Zulu
 13158||-9223372036854775808|U|G
 13158||10|U|G</Grants>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>873</IntrospectionStateNumber>
+      <IntrospectionStateNumber>3235</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|16416|16418|1
 </Relations>
@@ -919,7 +919,7 @@ false Zulu
       <Comment>standard public schema</Comment>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>874</IntrospectionStateNumber>
+      <IntrospectionStateNumber>3236</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="22" parent="3" name="plpgsql">
@@ -1028,81 +1028,59 @@ false Zulu
     <table id="35" parent="21" name="authentications">
       <ObjectId>16459</ObjectId>
       <Owner>developer</Owner>
-      <StateNumber>750</StateNumber>
+      <StateNumber>3234</StateNumber>
     </table>
-    <table id="36" parent="21" name="notes">
+    <table id="36" parent="21" name="collaborations">
+      <ObjectId>16506</ObjectId>
+      <Owner>developer</Owner>
+      <StateNumber>3234</StateNumber>
+    </table>
+    <table id="37" parent="21" name="notes">
       <ObjectId>16424</ObjectId>
       <Owner>developer</Owner>
-      <StateNumber>830</StateNumber>
+      <StateNumber>3234</StateNumber>
     </table>
-    <table id="37" parent="21" name="pgmigrations">
+    <table id="38" parent="21" name="pgmigrations">
       <ObjectId>16418</ObjectId>
       <Owner>developer</Owner>
       <StateNumber>520</StateNumber>
     </table>
-    <table id="38" parent="21" name="users">
+    <table id="39" parent="21" name="users">
       <ObjectId>16449</ObjectId>
       <Owner>developer</Owner>
-      <StateNumber>750</StateNumber>
+      <StateNumber>3234</StateNumber>
     </table>
-    <column id="39" parent="35" name="token">
+    <column id="40" parent="35" name="token">
       <Position>1</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>709</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="40" parent="36" name="id">
+    <column id="41" parent="36" name="id">
       <Position>1</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>521</StateNumber>
+      <StateNumber>951</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="41" parent="36" name="title">
+    <column id="42" parent="36" name="note_id">
       <Position>2</Position>
-      <DataType>text|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>521</StateNumber>
-      <TypeId>25</TypeId>
-    </column>
-    <column id="42" parent="36" name="body">
-      <Position>3</Position>
-      <DataType>text|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>521</StateNumber>
-      <TypeId>25</TypeId>
-    </column>
-    <column id="43" parent="36" name="tags">
-      <Position>4</Position>
-      <DataType>text[]|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>521</StateNumber>
-      <TypeId>1009</TypeId>
-    </column>
-    <column id="44" parent="36" name="created_at">
-      <Position>5</Position>
-      <DataType>text|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>521</StateNumber>
-      <TypeId>25</TypeId>
-    </column>
-    <column id="45" parent="36" name="updated_at">
-      <Position>6</Position>
-      <DataType>text|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>521</StateNumber>
-      <TypeId>25</TypeId>
-    </column>
-    <column id="46" parent="36" name="owner">
-      <Position>7</Position>
       <DataType>varchar(50)|0s</DataType>
-      <StateNumber>830</StateNumber>
+      <NotNull>1</NotNull>
+      <StateNumber>951</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="47" parent="36" name="notes_pkey">
-      <ObjectId>16430</ObjectId>
-      <StateNumber>750</StateNumber>
+    <column id="43" parent="36" name="user_id">
+      <Position>3</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>951</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="44" parent="36" name="collaborations_pkey">
+      <ObjectId>16509</ObjectId>
+      <StateNumber>3234</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1111,14 +1089,132 @@ false Zulu
       <CollationNames>default</CollationNames>
       <ClassIds>3126</ClassIds>
     </index>
-    <key id="48" parent="36" name="notes_pkey">
+    <index id="45" parent="36" name="unique_note_id_and_user_id">
+      <ObjectId>16511</ObjectId>
+      <StateNumber>3234</StateNumber>
+      <ColNames>note_id
+user_id</ColNames>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationIds>100,100</CollationIds>
+      <CollationNames>default
+default</CollationNames>
+      <ClassIds>3126,3126</ClassIds>
+    </index>
+    <key id="46" parent="36" name="collaborations_pkey">
+      <ObjectId>16510</ObjectId>
+      <StateNumber>951</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>collaborations_pkey</UnderlyingIndexName>
+    </key>
+    <key id="47" parent="36" name="unique_note_id_and_user_id">
+      <ObjectId>16512</ObjectId>
+      <StateNumber>951</StateNumber>
+      <ColNames>note_id
+user_id</ColNames>
+      <UnderlyingIndexName>unique_note_id_and_user_id</UnderlyingIndexName>
+    </key>
+    <foreign-key id="48" parent="36" name="fk_collaborations_note_id">
+      <ObjectId>16513</ObjectId>
+      <StateNumber>951</StateNumber>
+      <ColNames>note_id</ColNames>
+      <RefTableId>16424</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>notes</RefTableName>
+      <RefKeyName>notes_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="49" parent="36" name="fk_collaborations_user_id">
+      <ObjectId>16518</ObjectId>
+      <StateNumber>951</StateNumber>
+      <ColNames>user_id</ColNames>
+      <RefTableId>16449</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>users</RefTableName>
+      <RefKeyName>users_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="50" parent="37" name="id">
+      <Position>1</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>521</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="51" parent="37" name="title">
+      <Position>2</Position>
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>521</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="52" parent="37" name="body">
+      <Position>3</Position>
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>521</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="53" parent="37" name="tags">
+      <Position>4</Position>
+      <DataType>text[]|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>521</StateNumber>
+      <TypeId>1009</TypeId>
+    </column>
+    <column id="54" parent="37" name="created_at">
+      <Position>5</Position>
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>521</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="55" parent="37" name="updated_at">
+      <Position>6</Position>
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>521</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="56" parent="37" name="owner">
+      <Position>7</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <StateNumber>830</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="57" parent="37" name="notes_pkey">
+      <ObjectId>16430</ObjectId>
+      <StateNumber>3234</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationIds>100</CollationIds>
+      <CollationNames>default</CollationNames>
+      <ClassIds>3126</ClassIds>
+    </index>
+    <key id="58" parent="37" name="notes_pkey">
       <ObjectId>16431</ObjectId>
       <StateNumber>521</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>notes_pkey</UnderlyingIndexName>
     </key>
-    <column id="49" parent="37" name="id">
+    <foreign-key id="59" parent="37" name="fk_notes.owner_users_id">
+      <ObjectId>16489</ObjectId>
+      <StateNumber>875</StateNumber>
+      <ColNames>owner</ColNames>
+      <RefTableId>16449</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>users</RefTableName>
+      <RefKeyName>users_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="60" parent="38" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -1126,21 +1222,21 @@ false Zulu
       <DefaultExpression>nextval(&apos;pgmigrations_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="50" parent="37" name="name">
+    <column id="61" parent="38" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>520</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="51" parent="37" name="run_on">
+    <column id="62" parent="38" name="run_on">
       <Position>3</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>520</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <index id="52" parent="37" name="pgmigrations_pkey">
+    <index id="63" parent="38" name="pgmigrations_pkey">
       <ObjectId>16422</ObjectId>
       <StateNumber>520</StateNumber>
       <ColNames>id</ColNames>
@@ -1150,44 +1246,44 @@ false Zulu
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <key id="53" parent="37" name="pgmigrations_pkey">
+    <key id="64" parent="38" name="pgmigrations_pkey">
       <ObjectId>16423</ObjectId>
       <StateNumber>520</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>pgmigrations_pkey</UnderlyingIndexName>
     </key>
-    <column id="54" parent="38" name="id">
+    <column id="65" parent="39" name="id">
       <Position>1</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>594</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="55" parent="38" name="username">
+    <column id="66" parent="39" name="username">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>594</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="56" parent="38" name="password">
+    <column id="67" parent="39" name="password">
       <Position>3</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>594</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="57" parent="38" name="fullname">
+    <column id="68" parent="39" name="fullname">
       <Position>4</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>594</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <index id="58" parent="38" name="users_pkey">
+    <index id="69" parent="39" name="users_pkey">
       <ObjectId>16455</ObjectId>
-      <StateNumber>750</StateNumber>
+      <StateNumber>3234</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1196,9 +1292,9 @@ false Zulu
       <CollationNames>default</CollationNames>
       <ClassIds>3126</ClassIds>
     </index>
-    <index id="59" parent="38" name="users_username_key">
+    <index id="70" parent="39" name="users_username_key">
       <ObjectId>16457</ObjectId>
-      <StateNumber>750</StateNumber>
+      <StateNumber>3234</StateNumber>
       <ColNames>username</ColNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
@@ -1206,14 +1302,14 @@ false Zulu
       <CollationNames>default</CollationNames>
       <ClassIds>3126</ClassIds>
     </index>
-    <key id="60" parent="38" name="users_pkey">
+    <key id="71" parent="39" name="users_pkey">
       <ObjectId>16456</ObjectId>
       <StateNumber>594</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>users_pkey</UnderlyingIndexName>
     </key>
-    <key id="61" parent="38" name="users_username_key">
+    <key id="72" parent="39" name="users_username_key">
       <ObjectId>16458</ObjectId>
       <StateNumber>594</StateNumber>
       <ColNames>username</ColNames>
