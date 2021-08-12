@@ -4,3 +4,4 @@ node_modules
 test.http
 .idea
 notes-api-webserver.pem
+src/api/uploads/file
